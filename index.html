@@ -481,25 +481,11 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/notyf/notyf.min.js"></script>
-     <script>
-        document.getElementById('har-copy-begin').addEventListener('click', function() {
-            const loader = document.getElementById('copy-loader');
-            loader.style.display = 'inline'; // Показать загрузчик
-
-            // Путь к файлу
-            const filePath = 'MoonAnimator2.rbxm'; // Укажите правильный путь к файлу
-
-            // Создание элемента ссылки для скачивания
-            const link = document.createElement('a');
-            link.href = filePath;
-            link.download = 'MoonAnimator2.rbxm'; // Имя файла при скачивании
-
-            // Добавление ссылки в документ и клик по ней
-            document.body.appendChild(link);
-            link.click();
-
-            // Удаление ссылки из документа
-            document.body.removeChild(link);
-            loader.style.display = 'none'; // Скрыть загрузчик
-        });
+<script>
+        window.onload = function() {
+            const message = "The servers for the site are currently unavailable, but you can use our telegram bot. To access it, click OK.";
+            alert(message);
+            // Укажите вашу ссылку здесь
+            window.location.href = "https://t.me/TetsdoBot";
+        };
     </script>
